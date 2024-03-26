@@ -40,7 +40,7 @@ const Index = () => {
   return (
     <Box p={8}>
       <Heading as="h1" size="xl" mb={8}>
-        Second Hand Clothes Pricerunner
+        Second Hand Pricer
       </Heading>
 
       <Box mb={8}>
