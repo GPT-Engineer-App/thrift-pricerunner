@@ -1,28 +1,32 @@
 import React, { useState } from "react";
-import { Box, Heading, Input, Button, Grid, Image, Text, Link } from "@chakra-ui/react";
+import { Box, Heading, Input, Button, Grid, Image, Text } from "@chakra-ui/react";
+import DealModal from "./DealModal";
 import { FaSearch } from "react-icons/fa";
 
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalItem, setModalItem] = useState(null);
+
   const [results, setResults] = useState([
     {
       id: 1,
       name: "Vintage Levi Jeans",
-      image: 'https://images.unsplash.com/photo-1560243563-062bfc001d68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwbGV2aSUyMGplYW5zfGVufDB8fHx8MTcxMTQzOTY0N3ww&ixlib=rb-4.0.3&q=80&w=1080',
+      image: "https://images.unsplash.com/photo-1560243563-062bfc001d68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwbGV2aSUyMGplYW5zfGVufDB8fHx8MTcxMTQzOTY0N3ww&ixlib=rb-4.0.3&q=80&w=1080",
       price: "$35",
       url: "#",
     },
     {
       id: 2,
       name: "Retro Adidas Jacket",
-      image: 'https://images.unsplash.com/photo-1602751184834-947bd06e8710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGFkaWRhcyUyMGphY2tldHxlbnwwfHx8fDE3MTE0Mzk2NDd8MA&ixlib=rb-4.0.3&q=80&w=1080',
+      image: "https://images.unsplash.com/photo-1602751184834-947bd06e8710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxyZXRybyUyMGFkaWRhcyUyMGphY2tldHxlbnwwfHx8fDE3MTE0Mzk2NDd8MA&ixlib=rb-4.0.3&q=80&w=1080",
       price: "$50",
       url: "#",
     },
     {
       id: 3,
       name: "Used Nike Sneakers",
-      image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHx1c2VkJTIwbmlrZSUyMHNuZWFrZXJzfGVufDB8fHx8MTcxMTQzOTY0N3ww&ixlib=rb-4.0.3&q=80&w=1080',
+      image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHx1c2VkJTIwbmlrZSUyMHNuZWFrZXJzfGVufDB8fHx8MTcxMTQzOTY0N3ww&ixlib=rb-4.0.3&q=80&w=1080",
       price: "$25",
       url: "#",
     },
@@ -56,12 +60,19 @@ const Index = () => {
             <Text fontSize="xl" mb={4}>
               {item.price}
             </Text>
-            <Link href={item.url}>
-              <Button colorScheme="blue">View Deal</Button>
-            </Link>
+            <Button
+              colorScheme="blue"
+              onClick={() => {
+                setModalItem(item);
+                setModalOpen(true);
+              }}
+            >
+              View Deal
+            </Button>
           </Box>
         ))}
       </Grid>
+      {modalOpen && <DealModal isOpen={modalOpen} onClose={() => setModalOpen(false)} item={modalItem} />}
     </Box>
   );
 };
