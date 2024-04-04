@@ -45,7 +45,7 @@ const Index = () => {
 
       <Box mb={8}>
         <Input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search for an item..." mr={4} />
-        <Button onClick={handleSearch} colorScheme="blue" leftIcon={<FaSearch />}>
+        <Button onClick={handleSearch} colorScheme="red" leftIcon={<FaSearch />}>
           Search
         </Button>
       </Box>
@@ -61,7 +61,7 @@ const Index = () => {
               {item.price}
             </Text>
             <Button
-              colorScheme="blue"
+              colorScheme="red"
               onClick={() => {
                 setModalItem(item);
                 setModalOpen(true);
