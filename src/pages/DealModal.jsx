@@ -18,7 +18,7 @@ const DealModal = ({ isOpen, onClose, item }) => {
         <ModalFooter>
           <Link href={item.url} isExternal>
             <Button colorScheme="blue" mr={3}>
-              Go to Deal
+              Go to Deal!
             </Button>
           </Link>
           <Button onClick={onClose}>Close</Button>
