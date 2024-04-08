@@ -50,7 +50,7 @@ const Index = () => {
         </Button>
       </Box>
 
-      <Grid templateColumns="repeat(3, 1fr)" gap={8}>
+      <Grid gridTemplateColumns="repeat(3, 1fr)" gap={6}>
         {results.map((item) => (
           <Box key={item.id} borderWidth={1} borderRadius="lg" p={4}>
             <Image src={item.image} mb={4} />
