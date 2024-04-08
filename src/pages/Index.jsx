@@ -61,7 +61,7 @@ const Index = () => {
               {item.price}
             </Text>
             <Button
-              colorScheme="blue"
+              colorScheme="red"
               onClick={() => {
                 setModalItem(item);
                 setModalOpen(true);
