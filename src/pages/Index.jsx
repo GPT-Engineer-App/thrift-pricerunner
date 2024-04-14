@@ -45,7 +45,7 @@ const Index = () => {
 
       <Box mb={8}>
         <Input value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder="Search for an item..." mr={4} />
-        <Button onClick={handleSearch} colorScheme="red" leftIcon={<FaSearch />}>
+        <Button onClick={handleSearch} colorScheme="blue" leftIcon={<FaSearch />}>
           Search
         </Button>
       </Box>
